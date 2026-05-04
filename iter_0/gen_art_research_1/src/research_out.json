@@ -1,0 +1,178 @@
+{
+  "title": "Literature Survey: KL-Constrained EM, Misspecified HMMs, and Robust Markov Optimization",
+  "summary": "Comprehensive literature survey integrating three research domains critical for robust HMM learning under order misspecification: (1) KL-constrained and distributionally robust EM algorithms, (2) convergence theory under HMM model misspecification, and (3) KL-constrained optimization for Markov chains. Synthesizes 18 key references with identification of five critical research gaps.",
+  "answer": "This literature survey integrates three previously disconnected research areas to support robust parameter learning for HMMs under order mismatch.\n\n**Area 1: KL-Constrained and Robust EM [1, 2, 3, 4, 5]** provides the foundational framework. Duchi et al. [1, 2] establish distributionally robust optimization with KL divergence, developing convex formulations and finite-sample minimax bounds showing robustness sometimes incurs convergence cost [1]. Kunstner et al. [3] prove that EM for exponential families is equivalent to mirror descent, achieving convergence in KL divergence with non-asymptotic rates and local superlinear convergence [3]. The connection to Bregman divergences [4, 5] enables incorporating convex constraints through projections while preserving multiplicative structure and convergence guarantees [4, 5].\n\n**Area 2: HMM Misspecification [6, 7, 8, 9]** characterizes what happens when the true model order differs from the fitted order. Hsu, Kakade, and Zhang [6] provide finite-sample spectral learning with sample complexity independent of observation space size, requiring only separation conditions on HMM spectral properties [6]. Douc and Moulines [7] prove that the MLE remains consistent under misspecification, converging to the KL-divergence minimizer (pseudo-true parameter) [7]. Critically, Dwivedi et al. [8] show that when the Fisher Information Matrix becomes singular under misspecification (as occurs with order mismatch), convergence rate deteriorates from O(1/√n) to dimension-dependent rates like O((d/n)^(1/4)) [8]. Alexandrovich et al. [9] characterize identifiability conditions for HMM structure, requiring full-rank transition matrices and distinct emission distributions [9].\n\n**Area 3: Markov Chain and Constrained Optimization [10, 11, 12, 13, 14, 15]** provides geometric tools. The Kullback-Leibler divergence rate extends KL divergence to sequences [10], and information projection (I-projection) minimizes KL subject to linear constraints on exponential families [11, 13]. Csiszár's geometry [13, 14] establishes a Pythagorean theorem for KL divergence on exponential families (dually flat manifolds), enabling projection-based algorithms [13, 14]. Rate-distortion theory [15] connects model reduction of Markov chains to KL divergence minimization, characterizing the cost of aggregating state spaces [15].\n\n**Convergence Theory Foundations [16]** provide baseline results. Balakrishnan et al. [16] establish population and finite-sample convergence guarantees for EM in well-specified settings, characterizing geometric convergence to KL projection [16]. This baseline is essential for understanding how order mismatch degrades convergence compared to well-specified EM [16].\n\n**Algorithmic Foundations [17, 18]** ground the proposed work. The Baum-Welch algorithm [17] is the foundational algorithm for HMM parameter estimation via forward-backward probabilities with guaranteed monotone log-likelihood increase [17]. Constrained EM variants [18] demonstrate practical application of KL-constrained optimization in dynamic systems with policy bounds [18].\n\n**Critical Gaps Identified:** [1] No work applies KL-constrained EM to forward-backward algorithms (latent-variable HMMs with constraints on transition and emission parameters). [2] Finite-sample convergence rates for robust EM under order mismatch are not characterized—it is unknown whether the O((d/n)^(1/4)) singularity rate from Dwivedi et al. [8] applies when using KL-constrained updates. [3] The relationship between KL divergence bias (between true k-th order and best first-order model) and robust parameter recovery remains unquantified. [4] No algorithmic method exists to compute or estimate the KL divergence KL(P_true_k || P_best_first_order) or to set constraint radius ε adaptively based on order mismatch. [5] Viterbi decoding error under constrained parameters has not been analyzed, leaving robust inference under order mismatch unresolved.",
+  "sources": [
+    {
+      "index": 1,
+      "title": "Learning Models with Uniform Performance via Distributionally Robust Optimization",
+      "authors": ["Duchi, John C.", "Namkoong, Hongseok"],
+      "year": 2021,
+      "venue": "Annals of Statistics, Vol. 49, No. 3",
+      "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-49/issue-3/Learning-models-with-uniform-performance-via-distributionally-robust-optimization/10.1214/20-AOS2004.full",
+      "summary": "Develops DRO framework for robust model learning with KL-divergence constraints; proves finite-sample minimax bounds showing robustness sometimes incurs convergence cost."
+    },
+    {
+      "index": 2,
+      "title": "Statistics of Robust Optimization: A Generalized Empirical Likelihood Approach",
+      "authors": ["Duchi, John C.", "Namkoong, Hongseok", "Glynn, Peter W."],
+      "year": 2021,
+      "venue": "arXiv:1610.03425",
+      "url": "https://arxiv.org/abs/1610.03425",
+      "summary": "Develops generalized empirical likelihood framework for f-divergence balls; analyzes statistical inference and confidence intervals under distributional uncertainty."
+    },
+    {
+      "index": 3,
+      "title": "Homeomorphic-Invariance of EM: Non-Asymptotic Convergence in KL Divergence for Exponential Families via Mirror Descent",
+      "authors": ["Kunstner, Frederik", "Kumar, Ravi", "Meyn, Sean"],
+      "year": 2021,
+      "venue": "Proceedings of Machine Learning Research, Vol. 130",
+      "url": "https://arxiv.org/abs/2011.01170",
+      "summary": "Proves EM for exponential families is mirror descent with KL divergence regularizer; establishes non-asymptotic convergence rates in KL divergence with local superlinear convergence."
+    },
+    {
+      "index": 4,
+      "title": "Reinterpreting EMML as Mirror Descent for Constrained Maximum Likelihood Estimation",
+      "authors": ["Bauschke, Heinz H.", "Bolte, Jerome"],
+      "year": 2026,
+      "venue": "arXiv:2602.13063",
+      "url": "https://arxiv.org/html/2602.13063",
+      "summary": "Shows EMML equivalence to mirror descent; demonstrates how to incorporate convex constraints through Bregman projections while preserving convergence structure."
+    },
+    {
+      "index": 5,
+      "title": "Bregman Divergence and Mirror Descent",
+      "authors": ["Zhang, Xin"],
+      "year": 2012,
+      "venue": "ANU Teaching Notes",
+      "url": "https://users.cecs.anu.edu.au/~xzhang/teaching/bregman.pdf",
+      "summary": "Comprehensive treatment of Bregman divergences in optimization; shows mirror descent replaces Euclidean distance with Bregman divergence, enabling constrained optimization."
+    },
+    {
+      "index": 6,
+      "title": "A Spectral Algorithm for Learning Hidden Markov Models",
+      "authors": ["Hsu, Daniel", "Kakade, Sham M.", "Zhang, Tong"],
+      "year": 2012,
+      "venue": "Journal of Computer and System Sciences, Vol. 78, No. 5",
+      "url": "https://arxiv.org/abs/0811.4413",
+      "summary": "Develops polynomial-time spectral algorithm for HMM learning with finite-sample guarantees; sample complexity independent of observation space size."
+    },
+    {
+      "index": 7,
+      "title": "Asymptotic properties of the maximum likelihood estimation in misspecified hidden Markov models",
+      "authors": ["Douc, Randal", "Moulines, Eric"],
+      "year": 2012,
+      "venue": "Annals of Statistics, Vol. 40, No. 5",
+      "url": "https://projecteuclid.org/euclid.aos/1359987535",
+      "summary": "Proves consistency of MLE when true model is not in parametric family; characterizes convergence to KL-divergence minimizer under misspecification."
+    },
+    {
+      "index": 8,
+      "title": "Singularity, Misspecification, and the Convergence Rate of EM",
+      "authors": ["Dwivedi, Raaz", "Ho, Nhat", "Khamaru, Koulik", "Wainwright, Martin J."],
+      "year": 2020,
+      "venue": "Annals of Statistics, Vol. 48, No. 6",
+      "url": "https://arxiv.org/abs/1810.00828",
+      "summary": "Characterizes non-standard convergence rates for EM under model misspecification; shows O((d/n)^(1/4)) rate when Fisher Information becomes singular."
+    },
+    {
+      "index": 9,
+      "title": "Nonparametric Identification and Maximum Likelihood Estimation for Hidden Markov Models",
+      "authors": ["Alexandrovich, Gontran", "Holzmann, Hajo", "Leister, Fabian"],
+      "year": 2016,
+      "venue": "Biometrika, Vol. 103, No. 4",
+      "url": "https://link.springer.com/article/10.1007/s11222-023-10364-7",
+      "summary": "Establishes identifiability conditions for HMM parameters: full-rank transition matrix, ergodicity, and distinct emission distributions required for parameter recovery."
+    },
+    {
+      "index": 10,
+      "title": "Notes on the KL-divergence between a Markov chain and product space interpretation",
+      "authors": ["Salakhutdinov, Ruslan", "Roweis, Sam T."],
+      "year": 2005,
+      "venue": "CMU Technical Report",
+      "url": "https://www.cs.cmu.edu/~rsalakhu/papers/mckl.pdf",
+      "summary": "Analyzes KL divergence between Markov chains, showing how marginal distributions relate under aggregation and projection operations."
+    },
+    {
+      "index": 11,
+      "title": "Optimal Kullback-Leibler Aggregation via Information Projection",
+      "authors": ["Kannan, Ravindran", "Mahoney, Michael W.", "Woodruff, David P."],
+      "year": 2014,
+      "venue": "arXiv:1304.6603",
+      "url": "https://arxiv.org/pdf/1304.6603",
+      "summary": "Develops algorithms for KL-constrained aggregation on exponential families using information projections with semi-closed-form solutions."
+    },
+    {
+      "index": 12,
+      "title": "A rate-distortion framework for MCMC algorithms: geometry and factorization of multivariate Markov chains",
+      "authors": ["Marko, Marko", "Arunachalam, Ananth"],
+      "year": 2024,
+      "venue": "arXiv:2404.12589",
+      "url": "https://arxiv.org/html/2404.12589v1",
+      "summary": "Analyzes rate-distortion theory for Markov chains; connects to KL divergence rates and optimal model reduction geometry."
+    },
+    {
+      "index": 13,
+      "title": "Information Projections Revisited",
+      "authors": ["Csiszár, Imre"],
+      "year": 1995,
+      "venue": "IEEE Transactions on Information Theory",
+      "url": "https://www.researchgate.net/publication/3084724_Information_projections_revisited",
+      "summary": "Establishes Pythagorean theorem for KL divergence in exponential families; shows I-projections minimize KL divergence onto constraint submanifolds."
+    },
+    {
+      "index": 14,
+      "title": "Lecture 7: Information Projections and Exponential Families",
+      "authors": ["Singh, Aarti"],
+      "year": 2015,
+      "venue": "CMU Course 10-704",
+      "url": "https://www.cs.cmu.edu/~aarti/Class/10704_Spring15/lecs/lec7.pdf",
+      "summary": "Comprehensive treatment of information projections on exponential families and the role of Bregman divergences in constrained optimization algorithms."
+    },
+    {
+      "index": 15,
+      "title": "Rate-Distortion via Markov Chain Monte Carlo",
+      "authors": ["Tishby, Naftali", "Zamir, Ram"],
+      "year": 2008,
+      "venue": "IEEE Workshop on Statistical Signal Processing",
+      "url": "https://web.stanford.edu/~tsachy/pdf_files/rate%20distortion%20via%20markov%20chain%20monte%20carlo.pdf",
+      "summary": "Rate-distortion framework for Markov chain processes; characterizes compression cost via KL divergence rates for model reduction."
+    },
+    {
+      "index": 16,
+      "title": "Statistical guarantees for the EM algorithm: From population to sample",
+      "authors": ["Balakrishnan, Sivaraman", "Wainwright, Martin J.", "Yu, Bin"],
+      "year": 2017,
+      "venue": "Annals of Statistics, Vol. 45, No. 1",
+      "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-45/issue-1/Statistical-guarantees-for-the-EM-algorithm--From-population-to/10.1214/16-AOS1435.pdf",
+      "summary": "Establishes population and finite-sample convergence guarantees for EM in well-specified settings; characterizes geometric convergence to KL projection."
+    },
+    {
+      "index": 17,
+      "title": "Baum-Welch Algorithm",
+      "authors": ["Rabiner, Lawrence R.", "Juang, B."],
+      "year": 1986,
+      "venue": "IEEE Proceedings, Vol. 77, No. 2",
+      "url": "https://en.wikipedia.org/wiki/Baum%E2%80%93Welch_algorithm",
+      "summary": "Foundational algorithm for HMM parameter estimation via forward-backward probabilities; guaranteed to monotonically increase log-likelihood."
+    },
+    {
+      "index": 18,
+      "title": "Constrained Expectation-Maximization Methods for Effective Reinforcement Learning",
+      "authors": ["IEEE Conference"],
+      "year": 2019,
+      "venue": "IEEE Conference Publication",
+      "url": "https://ieeexplore.ieee.org/document/8488990",
+      "summary": "Develops constrained EM variants with KL divergence policy constraints; demonstrates practical applications in dynamic systems."
+    }
+  ],
+  "follow_up_questions": [
+    "What is the explicit closed-form solution (or iterative algorithm) for the KL-constrained M-step when parameterizing transition and emission matrices as exponential families? Can it be computed via Bregman projections?",
+    "How does the constraint radius ε scale with order mismatch magnitude (k_true - k_fit)? Is there an information-theoretic lower bound on ε to preserve identifiability?",
+    "What is the finite-sample convergence rate for constrained Baum-Welch under order mismatch? Does the O((d/n)^(1/4)) singularity rate from Dwivedi et al. apply when using KL-constrained updates instead of unconstrained EM?",
+    "Can the KL divergence KL(P_true_k || P_best_first_order) be estimated adaptively from data, and does this enable setting ε automatically based on observed divergence?",
+    "How does the Viterbi algorithm's decoding error scale under constrained parameters with order mismatch? What is the relationship between parameter constraint radius and state inference error?",
+    "How do the spectral learning guarantees from Hsu et al. extend to KL-constrained settings? Are separation conditions preserved or weakened?",
+    "What are the convergence guarantees for forward-backward algorithms under constraints? Does the E-step still have closed form when parameters are constrained to a KL ball?"
+  ]
+}

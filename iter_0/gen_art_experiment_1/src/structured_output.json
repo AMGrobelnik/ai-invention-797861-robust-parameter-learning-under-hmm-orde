@@ -1,0 +1,11 @@
+{
+  "title": "Extended KL-BW with Bias-Variance Characterization",
+  "layman_summary": "We test whether adding a KL divergence constraint to the Baum-Welch algorithm helps learn hidden Markov models when the assumed model order is wrong.",
+  "summary": "This experiment implements and evaluates KL-Constrained Baum-Welch (KL-BW) against standard Baum-Welch (BW) and a warm-restart ablation (BW-warm) for learning misspecified Hidden Markov Models across 315 configurations (5 seeds × 3 k_true × 3 d × 7 sequence lengths T). The core hypothesis is that constraining each M-step parameter update to remain within an epsilon-KL ball of the previous iterate prevents catastrophic jumps to bad local optima in the expected-complete-data likelihood surface, particularly when the fitted model order d is misspecified relative to the true order k_true. Three methods are compared: (1) BW: 5-restart standard Baum-Welch with 100 EM iterations, selecting best by log-likelihood; (2) BW-warm: identical 5 restarts followed by 80 additional unconstrained iterations from the best restart, disentangling the benefit of extra iterations from the constraint; (3) KL-BW: 5 restarts followed by 80 KL-constrained iterations (epsilon=0.01) from the best restart, tracking constraint activation rate per M-step. Evaluation uses Viterbi decoding accuracy against ground-truth hidden state sequences generated from k-th order HMMs. Phase 3 fits power-law bias-variance curves error(T) = bias + c*T^(-alpha) across seeds per method, quantifying asymptotic bias. Phase 4 applies IQR outlier detection at T=2000. Phase 5 aggregates constraint activation rates by T. Full results with 315 examples are stored in full_method_out.json following the exp_gen_sol_out schema, with predict_bw, predict_bw_warm, and predict_kl_bw fields storing each method's Viterbi accuracy, plus per-example metadata for seed, k_true, d, T, spectral gap, and constraint activation rate. Summary gains: BW_vs_BW_warm mean=0.03 pp, BW_warm_vs_KL_BW mean=-0.36 pp, BW_vs_KL_BW mean=-0.32 pp across all 315 configs.",
+  "out_expected_files": {
+    "script": "method.py",
+    "full_output": "full_method_out.json",
+    "mini_output": "mini_method_out.json",
+    "preview_output": "preview_method_out.json"
+  }
+}
