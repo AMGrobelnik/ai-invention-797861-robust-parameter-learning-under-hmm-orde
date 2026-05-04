@@ -1,0 +1,14 @@
+{
+  "id": "gen_art_experiment_1",
+  "type": "code",
+  "iteration": 0,
+  "title": "KL-Constrained Baum-Welch Under HMM Misspecification",
+  "summary": "This experiment empirically investigates KL-constrained Baum-Welch (KL-BW) vs standard Baum-Welch (BW) when fitting first-order HMMs to higher-order (k=2,3) Markov data \u2014 a canonical misspecification setting.\n\n`method.py` implements: (1) synthetic k-th order HMM data generation (d=4 states, obs_dim=3, k_true\u2208{1,2,3}, T\u2208{100,500,2000}, 5 seeds, diagonal Gaussian emissions); (2) batched scaled forward-backward (Rabiner 1989) vectorized over all N sequences simultaneously for fast CPU execution; (3) standard BW with 5 random restarts; (4) KL-BW initialized from best BW, with geometric binary search for Lagrange multiplier \u03bb satisfying KL(A_new[i,:]\u2225A_old[i,:])\u2264\u03b5 row-wise, for \u03b5\u2208{0.01,0.05,0.1,0.5}; (5) Viterbi decoding accuracy with permutation matching; (6) parameter recovery (Frobenius error); (7) power-law bias-variance decomposition with bootstrap CIs; (8) paired t-test improvement metrics.\n\nResults (45 configs, 4.6 min): k_true=1: BW=0.801, KL=0.824, +2.8%; k_true=2: BW=0.769, KL=0.766, -0.4%; k_true=3: BW=0.765, KL=0.780, +1.9%. Best \u03b5=0.01 consistently. Statistical significance modest (p>0.05) due to seed variance, but individual runs show large gains (e.g. k=3,T=2000,seed=4: BW=0.699\u2192KL=0.942). Four plots generated: accuracy vs T, bias-variance decomposition, parameter recovery, epsilon sensitivity.\n\nOutput schema: exp_gen_sol_out \u2014 45 examples with predict_standard_bw, predict_kl_best, predict_kl_eps_* fields and metadata per configuration.",
+  "original_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_anDiSbGaeE4M/3_invention_loop/iter_1/gen_art/gen_art_experiment_1",
+  "demo_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_BGr-n9Pipvh0/4_gen_paper_repo/_3_gen_art_demo/iter_0/gen_art_experiment_1",
+  "out_expected_files": {
+    "notebook": "code_demo.ipynb",
+    "mini_data_file": "mini_demo_data.json"
+  },
+  "notebook_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_BGr-n9Pipvh0/4_gen_paper_repo/_3_gen_art_demo/iter_0/gen_art_experiment_1/method_code_demo.ipynb"
+}

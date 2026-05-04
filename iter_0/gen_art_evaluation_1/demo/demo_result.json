@@ -1,0 +1,14 @@
+{
+  "id": "gen_art_evaluation_1",
+  "type": "code",
+  "iteration": 0,
+  "title": "Corrected Statistical Analysis for KL-Constrained Baum-Welch",
+  "summary": "Post-hoc evaluation of KL-Constrained Baum-Welch addressing 5 methodological gaps. (1) Table 1: absolute pp gains with 10K bootstrap CIs \u2014 k_true=1: +2.247 pp [\u22120.374, +7.165], k_true=2: \u22120.308 pp, k_true=3: +1.448 pp [\u22120.390, +4.859]; none significant at \u03b1=0.05. Previous output mislabeled relative % as absolute pp. (2) Table 2: partial ablation grid (k_true\u00d7T) with explicit footnote that BW-warm baseline is missing, preventing decomposition of constraint vs. iteration effects. (3) Table 3: bias-variance power-law refit with DoF awareness \u2014 3-param fit to 3 T-points has DoF=0 (uninformative R\u00b2\u22481); preferred 2-param fit fixes \u03b1=0.5 from theory (DoF=1, meaningful CIs). (4) Outlier analysis: seed 4 for k_true=3 contributes +8.09 pp mean gain; excluding it collapses k_true=3 mean from +1.448 pp to \u22120.213 pp \u2014 entire gain is non-robust. (5) Epsilon sensitivity: all 9 (k_true,T) cells show <0.5 pp spread across \u03b5\u2208{0.01,0.05,0.1,0.5}, confirming KL constraint rarely active; gains arise from initialization differences, not regularization. Per-example fields: eval_pp_gain_eps001, eval_bw_accuracy, eval_kl_accuracy_eps001, eval_param_error_improvement, eval_eps_sensitivity_spread_pp, eval_kl_beats_bw. Discussion sections in revised_sections.md cover KL direction (Csisz\u00e1r 1975) and proximal EM (Capp\u00e9 & Moulines 2009). All 45 examples evaluated; schema-validated. Key aggregates: frac_kl_beats_bw=0.60, eps_flat_fraction=1.00, k3_pp_excl_seed4=\u22120.213.",
+  "original_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_anDiSbGaeE4M/3_invention_loop/iter_2/gen_art/gen_art_evaluation_1",
+  "demo_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_BGr-n9Pipvh0/4_gen_paper_repo/_3_gen_art_demo/iter_0/gen_art_evaluation_1",
+  "out_expected_files": {
+    "notebook": "code_demo.ipynb",
+    "mini_data_file": "mini_demo_data.json"
+  },
+  "notebook_path": "/home/adrian/projects/ai-inventor/aii_data/users/admin/runs/run_BGr-n9Pipvh0/4_gen_paper_repo/_3_gen_art_demo/iter_0/gen_art_evaluation_1/eval_code_demo.ipynb"
+}

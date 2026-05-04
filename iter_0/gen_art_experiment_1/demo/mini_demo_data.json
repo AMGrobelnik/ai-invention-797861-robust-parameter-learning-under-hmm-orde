@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "method_name": "KL-Constrained Baum-Welch",
+    "description": "HMM order-misspecification experiment comparing standard BW, warm-start BW, and KL-constrained BW",
+    "seeds_used": [0, 1],
+    "extra_iter": 30,
+    "epsilon_main": 0.01,
+    "epsilon_sensitivity_grid": [0.06, 0.36, 0.5],
+    "grid_params": {
+      "k_true_values": [1, 2],
+      "d_values": [4, 8],
+      "T_values": [50, 100, 250]
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "hmm_order_misspecification",
+      "examples": [
+        {
+          "input": "{\"seed\": 0, \"k_true\": 1, \"d\": 4, \"T\": 50, \"task\": \"HMM order misspecification: fit first-order model to k_true=1-order process with d=4 states, T=50 obs\"}",
+          "output": "{\"description\": \"Viterbi accuracy comparing BW variants on k_true=1, d=4, T=50, seed=0\"}",
+          "predict_BW": "{\"viterbi_acc\": 0.38, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_BW_warm": "{\"viterbi_acc\": 0.38, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_KL_BW": "{\"viterbi_acc\": 0.38, \"constraint_activation_rate\": 0.0, \"epsilon\": 0.01}"
+        },
+        {
+          "input": "{\"seed\": 0, \"k_true\": 1, \"d\": 4, \"T\": 100, \"task\": \"HMM order misspecification: fit first-order model to k_true=1-order process with d=4 states, T=100 obs\"}",
+          "output": "{\"description\": \"Viterbi accuracy comparing BW variants on k_true=1, d=4, T=100, seed=0\"}",
+          "predict_BW": "{\"viterbi_acc\": 0.37, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_BW_warm": "{\"viterbi_acc\": 0.37, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_KL_BW": "{\"viterbi_acc\": 0.37, \"constraint_activation_rate\": 0.0, \"epsilon\": 0.01}"
+        },
+        {
+          "input": "{\"seed\": 0, \"k_true\": 1, \"d\": 4, \"T\": 250, \"task\": \"HMM order misspecification: fit first-order model to k_true=1-order process with d=4 states, T=250 obs\"}",
+          "output": "{\"description\": \"Viterbi accuracy comparing BW variants on k_true=1, d=4, T=250, seed=0\"}",
+          "predict_BW": "{\"viterbi_acc\": 0.316, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_BW_warm": "{\"viterbi_acc\": 0.32, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_KL_BW": "{\"viterbi_acc\": 0.32, \"constraint_activation_rate\": 0.6333333333333333, \"epsilon\": 0.01}"
+        },
+        {
+          "input": "{\"seed\": 0, \"k_true\": 2, \"d\": 8, \"T\": 50, \"task\": \"HMM order misspecification: fit first-order model to k_true=2-order process with d=8 states, T=50 obs\"}",
+          "output": "{\"description\": \"Viterbi accuracy comparing BW variants on k_true=2, d=8, T=50, seed=0\"}",
+          "predict_BW": "{\"viterbi_acc\": 0.32, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_BW_warm": "{\"viterbi_acc\": 0.32, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_KL_BW": "{\"viterbi_acc\": 0.32, \"constraint_activation_rate\": 0.1, \"epsilon\": 0.01}"
+        },
+        {
+          "input": "{\"seed\": 1, \"k_true\": 1, \"d\": 4, \"T\": 100, \"task\": \"HMM order misspecification: fit first-order model to k_true=1-order process with d=4 states, T=100 obs\"}",
+          "output": "{\"description\": \"Viterbi accuracy comparing BW variants on k_true=1, d=4, T=100, seed=1\"}",
+          "predict_BW": "{\"viterbi_acc\": 0.42, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_BW_warm": "{\"viterbi_acc\": 0.42, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_KL_BW": "{\"viterbi_acc\": 0.42, \"constraint_activation_rate\": 0.0, \"epsilon\": 0.01}"
+        },
+        {
+          "input": "{\"seed\": 1, \"k_true\": 2, \"d\": 8, \"T\": 250, \"task\": \"HMM order misspecification: fit first-order model to k_true=2-order process with d=8 states, T=250 obs\"}",
+          "output": "{\"description\": \"Viterbi accuracy comparing BW variants on k_true=2, d=8, T=250, seed=1\"}",
+          "predict_BW": "{\"viterbi_acc\": 0.28, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_BW_warm": "{\"viterbi_acc\": 0.29, \"constraint_activation_rate\": 0.0, \"epsilon\": null}",
+          "predict_KL_BW": "{\"viterbi_acc\": 0.35, \"constraint_activation_rate\": 0.5666666666666667, \"epsilon\": 0.01}"
+        }
+      ]
+    }
+  ]
+}
