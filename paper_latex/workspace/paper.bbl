@@ -1,0 +1,95 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Amari(1998)]{Amari1998}
+S.~Amari.
+\newblock Natural gradient works efficiently in learning.
+\newblock \emph{Neural Computation}, 10\penalty0 (2):\penalty0 251--276, 1998.
+\newblock \doi{10.1162/089976698300017746}.
+
+\bibitem[Baum et~al.(1970)Baum, Petrie, Soules, and Weiss]{Baum1970}
+L.~Baum, T.~Petrie, G.~Soules, and N.~Weiss.
+\newblock A maximization technique occurring in the statistical analysis of
+  probabilistic functions of {M}arkov chains.
+\newblock \emph{Annals of Mathematical Statistics}, 41\penalty0 (1):\penalty0
+  164--171, 1970.
+\newblock \doi{10.1214/AOMS/1177697196}.
+
+\bibitem[Capp{\'e} and Moulines(2009)]{Cappe2009}
+O.~Capp{\'e} and {\'E}.~Moulines.
+\newblock On-line expectation-maximization algorithm for latent data models.
+\newblock \emph{Journal of the Royal Statistical Society: Series B},
+  71\penalty0 (3):\penalty0 593--613, 2009.
+\newblock \doi{10.1111/j.1467-9868.2009.00698.x}.
+
+\bibitem[Csisz{\'a}r(1975)]{Csiszar1975}
+I.~Csisz{\'a}r.
+\newblock {$I$}-divergence geometry of probability distributions and
+  minimization problems.
+\newblock \emph{Annals of Probability}, 3:\penalty0 146--158, 1975.
+\newblock \doi{10.1214/AOP/1176996454}.
+
+\bibitem[Douc and Moulines(2012)]{Douc2012}
+R.~Douc and {\'E}.~Moulines.
+\newblock Asymptotic properties of the maximum likelihood estimation in
+  misspecified hidden {M}arkov models.
+\newblock \emph{Annals of Statistics}, 40\penalty0 (5):\penalty0 2697--2732,
+  2012.
+\newblock \doi{10.1214/12-AOS1047}.
+
+\bibitem[Douc et~al.(2011)Douc, Moulines, Olsson, and van Handel]{Douc2011}
+R.~Douc, {\'E}.~Moulines, J.~Olsson, and R.~van Handel.
+\newblock Consistency of the maximum likelihood estimator for general hidden
+  {M}arkov models.
+\newblock \emph{Annals of Statistics}, 39\penalty0 (1):\penalty0 474--513,
+  2011.
+\newblock \doi{10.1214/10-AOS834}.
+
+\bibitem[Duchi and Namkoong(2021)]{Duchi2021}
+J.~C. Duchi and H.~Namkoong.
+\newblock Learning models with uniform performance via distributionally robust
+  optimization.
+\newblock \emph{Annals of Statistics}, 49\penalty0 (3):\penalty0 1378--1406,
+  2021.
+\newblock \doi{10.1214/20-AOS2004}.
+
+\bibitem[Dwivedi et~al.(2020)Dwivedi, Ho, Khamaru, and Wainwright]{Dwivedi2020}
+R.~Dwivedi, N.~Ho, K.~Khamaru, and M.~J. Wainwright.
+\newblock Singularity, misspecification, and the convergence rate of {EM}.
+\newblock \emph{Annals of Statistics}, 48\penalty0 (6):\penalty0 3161--3182,
+  2020.
+\newblock \doi{10.1214/19-AOS1924}.
+
+\bibitem[Hsu et~al.(2012)Hsu, Kakade, and Zhang]{Hsu2012}
+D.~Hsu, S.~M. Kakade, and T.~Zhang.
+\newblock A spectral algorithm for learning hidden {M}arkov models.
+\newblock \emph{Journal of Computer and System Sciences}, 78\penalty0
+  (5):\penalty0 1460--1480, 2012.
+\newblock \doi{10.1016/j.jcss.2011.12.025}.
+
+\bibitem[Kunstner et~al.(2021)Kunstner, Kumar, and Schmidt]{Kunstner2021}
+F.~Kunstner, R.~Kumar, and M.~W. Schmidt.
+\newblock Homeomorphic-invariance of {EM}: Non-asymptotic convergence in {KL}
+  divergence for exponential families via mirror descent.
+\newblock In \emph{Proceedings of the 24th International Conference on
+  Artificial Intelligence and Statistics (AISTATS)}, pages 3295--3303, 2021.
+
+\bibitem[Rabiner(1989)]{Rabiner1989}
+L.~Rabiner.
+\newblock A tutorial on hidden {M}arkov models and selected applications in
+  speech recognition.
+\newblock In \emph{Proceedings of the IEEE}, volume~77, pages 257--286, 1989.
+\newblock \doi{10.1109/5.18626}.
+
+\bibitem[Yang et~al.(2015)Yang, Balakrishnan, and Wainwright]{Yang2015}
+F.~Yang, S.~Balakrishnan, and M.~J. Wainwright.
+\newblock Statistical and computational guarantees for the {B}aum-{W}elch
+  algorithm.
+\newblock In \emph{Proceedings of the 53rd Annual Allerton Conference on
+  Communication, Control, and Computing}, pages 658--665, 2015.
+
+\end{thebibliography}
